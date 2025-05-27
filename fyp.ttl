@@ -1,0 +1,57 @@
+@prefix : <http://example.org/fyp#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/fyp> rdf:type owl:Ontology .
+
+### Classes
+:Department a owl:Class ;
+    rdfs:label "Department" .
+
+:Student a owl:Class ;
+    rdfs:label "Student" .
+
+:Supervisor a owl:Class ;
+    rdfs:label "Supervisor" .
+
+:Project a owl:Class ;
+    rdfs:label "Project" .
+
+### Object Properties
+:hasStudent a owl:ObjectProperty ;
+    rdfs:domain :Department ;
+    rdfs:range :Student ;
+    rdfs:label "has student" .
+
+:hasSupervisor a owl:ObjectProperty ;
+    rdfs:domain :Department ;
+    rdfs:range :Supervisor ;
+    rdfs:label "has supervisor" .
+
+:assignedTo a owl:ObjectProperty ;
+    rdfs:domain :Project ;
+    rdfs:range :Student ;
+    rdfs:label "assigned to" .
+
+:supervises a owl:ObjectProperty ;
+    rdfs:domain :Supervisor ;
+    rdfs:range :Project ;
+    rdfs:label "supervises" .
+
+### Data Properties
+:studentName a owl:DatatypeProperty ;
+    rdfs:domain :Student ;
+    rdfs:range xsd:string ;
+    rdfs:label "student name" .
+
+:projectTitle a owl:DatatypeProperty ;
+    rdfs:domain :Project ;
+    rdfs:range xsd:string ;
+    rdfs:label "project title" .
+
+:departmentName a owl:DatatypeProperty ;
+    rdfs:domain :Department ;
+    rdfs:range xsd:string ;
+    rdfs:label "department name" .
